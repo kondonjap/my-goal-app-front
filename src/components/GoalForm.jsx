@@ -1,5 +1,4 @@
-import { useState } from 'react'
-
+import { useState } from "react";
 
 export default function GoalForm({ onSubmit }) {
   const [title, setTitle] = useState("");
@@ -8,49 +7,34 @@ export default function GoalForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({
-      title,
-      deadline,
-      note,
-    });
+    onSubmit({ title, deadline, note });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 flex flex-col gap-4 max-w-md">
-      <div>
-        <label className="block mb-1">目標タイトル</label>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <div className="flex flex-col gap-2">
+        <label className="text-sm text-white/80">目標タイトル</label>
         <input
           type="text"
-          className="border p-2 w-full"
+          className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 outline-none focus:border-white/25 focus:ring-2 focus:ring-white/10"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="例）筋トレを週3回続ける"
         />
       </div>
-
-      <div>
-        <label className="block mb-1">期限</label>
-        <input
-          type="date"
-          className="border p-2 w-full"
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label className="block mb-1">メモ</label>
+      <div className="flex flex-col gap-2">
+        <label className="text-sm text-white/80">メモ</label>
         <textarea
-          className="border p-2 w-full"
+          className="w-full rounded-xl bg-black/30 border border-white/10 px-4 py-3 min-h-[120px] outline-none focus:border-white/25 focus:ring-2 focus:ring-white/10"
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="メモや注意点など"
         />
       </div>
 
-      <button className="bg-blue-600 text-white p-2 rounded" type="submit">
-        登録
-      </button>
+      <button className="bg-red-500 text-white p-4 rounded">
+  テスト
+</button>
     </form>
   );
 }
