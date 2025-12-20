@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getGoal } from "../api/goals";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { getGoal, deleteGoal } from "../api/goals";
 
 export default function GoalShow() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [goal, setGoal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
@@ -24,6 +26,21 @@ export default function GoalShow() {
     };
     load();
   }, [id]);
+
+  // ★ 削除処理
+  const handleDelete = async () => {
+    const ok = window.confirm("この目標を削除しますか？");
+    if (!ok) return;
+
+    try {
+      await deleteGoal(id);
+      alert("削除しました");
+      navigate("/goals"); // 一覧へ戻る
+    } catch (e) {
+      console.error(e);
+      alert("削除に失敗しました");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white p-6">
@@ -47,19 +64,27 @@ export default function GoalShow() {
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <h2 className="text-xl font-semibold">{goal.title}</h2>
 
-            <div className="mt-2 text-sm text-white/60">
-              {goal.deadline ? `期限：${goal.deadline}` : "期限：未設定"}
-            </div>
-
             {goal.note && (
               <div className="mt-4">
                 <div className="text-sm text-white/60 mb-2">メモ</div>
-                <p className="whitespace-pre-wrap text-white/85">{goal.note}</p>
+                <p className="whitespace-pre-wrap text-white/85">
+                  {goal.note}
+                </p>
               </div>
             )}
 
             <div className="mt-6 text-sm text-white/50">
               ID: {goal.id}
+            </div>
+
+            {/* ★ 削除ボタン */}
+            <div className="mt-8 flex justify-end">
+              <button
+                onClick={handleDelete}
+                className="rounded-xl bg-red-600/80 hover:bg-red-600 text-white px-4 py-2 font-semibold"
+              >
+                削除
+              </button>
             </div>
           </div>
         )}

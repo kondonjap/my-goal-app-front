@@ -16,3 +16,8 @@ export const getGoal = async (id) => {
 export const createGoal = (data) => {
   return axios.post("http://127.0.0.1:8000/api/goals", data);
 };
+
+//目標削除画面
+export const deleteGoal = async (id) => {
+  await axios.delete(`http://localhost:8000/api/goals/${id}`);
+};
