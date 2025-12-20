@@ -57,20 +57,15 @@ export default function GoalIndex() {
         {!loading && !errorMsg && goals.length > 0 && (
           <div className="grid gap-4">
             {goals.map((g) => (
-              <div
+              <Link
                 key={g.id}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                to={`/goals/${g.id}`}
+                className="block rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h2>
-                      <Link
-                        to={`/goals/${g.id}`}
-                        className="text-xl font-semibold hover:underline"
-                      >
-                        {g.title}
-                      </Link>
-                    </h2>
+                    <h2 className="text-xl font-semibold">{g.title}</h2>
+
                     {g.deadline && (
                       <p className="text-sm text-white/60 mt-1">
                         期限：{g.deadline}
@@ -84,7 +79,7 @@ export default function GoalIndex() {
                     {g.note}
                   </p>
                 )}
-              </div>
+              </Link>
             ))}
           </div>
         )}

@@ -73,12 +73,14 @@ export default function GoalShow() {
               </div>
             )}
 
-            <div className="mt-6 text-sm text-white/50">
-              ID: {goal.id}
-            </div>
-
             {/* ★ 削除ボタン */}
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex justify-end gap-3">
+               <Link
+                to={`/goals/${goal.id}/edit`}
+                className="rounded-xl bg-white/15 hover:bg-white/20 border border-white/10 px-4 py-2 font-semibold"
+              >
+                編集
+              </Link>
               <button
                 onClick={handleDelete}
                 className="rounded-xl bg-red-600/80 hover:bg-red-600 text-white px-4 py-2 font-semibold"

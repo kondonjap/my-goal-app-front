@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import GoalCreate from "./pages/GoalCreate";
 import GoalIndex from "./pages/GoalIndex";
 import GoalShow from "./pages/GoalShow";
+import GoalEdit from "./pages/GoalEdit";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/goals" element={<GoalIndex />} />
           <Route path="/goals/:id" element={<GoalShow />} />
           <Route path="/goals/new" element={<GoalCreate />} />
+          <Route path="/goals/:id/edit" element={<GoalEdit />} />
           <Route path="*" element={<div className="p-6">ページがありません</div>} />
         </Routes>
       </div>
