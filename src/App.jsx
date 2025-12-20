@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import GoalCreate from "./pages/GoalCreate";
 import GoalIndex from "./pages/GoalIndex";
+import GoalShow from "./pages/GoalShow";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/goals" replace />} />
           <Route path="/goals" element={<GoalIndex />} />
+          <Route path="/goals/:id" element={<GoalShow />} />
           <Route path="/goals/new" element={<GoalCreate />} />
           <Route path="*" element={<div className="p-6">ページがありません</div>} />
         </Routes>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getGoals } from "../api/goals";
+import { Link } from "react-router-dom";
 
 export default function GoalIndex() {
   const [goals, setGoals] = useState([]);
@@ -62,7 +63,14 @@ export default function GoalIndex() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h2 className="text-xl font-semibold">{g.title}</h2>
+                    <h2>
+                      <Link
+                        to={`/goals/${g.id}`}
+                        className="text-xl font-semibold hover:underline"
+                      >
+                        {g.title}
+                      </Link>
+                    </h2>
                     {g.deadline && (
                       <p className="text-sm text-white/60 mt-1">
                         期限：{g.deadline}
