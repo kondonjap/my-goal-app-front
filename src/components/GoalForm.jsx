@@ -32,9 +32,12 @@ export default function GoalForm({ onSubmit }) {
         />
       </div>
 
-      <button className="bg-red-500 text-white p-4 rounded">
-  テスト
-</button>
+      <button
+        type="submit"
+        className="w-full rounded-xl bg-red-500 hover:bg-red-600 text-white py-3 font-semibold"
+      >
+        登録
+      </button>
     </form>
   );
 }

@@ -12,10 +12,13 @@ export default function GoalCreate() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white flex items-center justify-center p-6">
-      <div className="w-full max-w-xl">
-        <h1 className="text-3xl font-bold mb-6">目標を登録する</h1>
-        <GoalForm onSubmit={handleSubmit} />
+    <div className="min-h-screen bg-neutral-950 text-white">
+      <div className="mx-auto max-w-3xl px-6 py-16">
+        <h1 className="text-3xl font-bold mb-8">目標を登録する</h1>
+
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+          <GoalForm onSubmit={handleSubmit} />
+        </div>
       </div>
     </div>
   );
