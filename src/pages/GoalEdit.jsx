@@ -55,6 +55,9 @@ export default function GoalEdit() {
       <div className="mx-auto max-w-3xl">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold">目標を編集</h1>
+          <Link className="text-white/80 hover:text-white" to="/">
+            ← トップへ
+          </Link>
           <Link className="text-white/80 hover:text-white" to={`/goals/${id}`}>
             ← 詳細へ
           </Link>
