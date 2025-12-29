@@ -21,3 +21,19 @@ export const createMember = async (data) => {
   const res = await axios.post(`${BASE}/idol/members`, data);
   return res.data;
 };
+
+export const getEvents = async () => {
+  const res = await axios.get(`${BASE}/idol/events`);
+  return res.data;
+};
+
+export const createEvent = async (data) => {
+  const res = await axios.post(`${BASE}/idol/events`, data);
+  return res.data;
+};
+
+export const getEvent = async (id) => {
+  const res = await axios.get(`${BASE}/idol/events/${id}`);
+  return res.data;
+};
+

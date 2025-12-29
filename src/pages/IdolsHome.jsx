@@ -36,6 +36,17 @@ export default function IdolsHome() {
             </div>
             <div className="mt-4 text-sm text-white/80">→ 開く</div>
           </Link>
+
+          <Link
+            to="/idols/events"
+            className="block rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition"
+          >
+            <div className="text-xl font-semibold">現場記録</div>
+            <div className="text-white/60 mt-2 text-sm">
+              ライブ情報入力
+            </div>
+            <div className="mt-4 text-sm text-white/80">→ 開く</div>
+          </Link>
         </div>
       </div>
     </div>

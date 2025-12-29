@@ -9,6 +9,7 @@ import GoalEdit from "./pages/GoalEdit";
 import IdolsHome from "./pages/IdolsHome";
 import IdolVenues from "./pages/IdolVenues";
 import IdolMembers from "./pages/IdolMembers";
+import IdolEvents from "./pages/IdolEvents";
 
 
 // Coming soon pages
@@ -56,6 +57,7 @@ function App() {
           <Route path="/idols" element={<IdolsHome />} />
           <Route path="/idols/venues" element={<IdolVenues />} />
           <Route path="/idols/members" element={<IdolMembers />} />
+          <Route path="/idols/events" element={<IdolEvents />} />
 
           {/* 404 */}
           <Route path="*" element={<div className="p-6">ページがありません</div>} />
