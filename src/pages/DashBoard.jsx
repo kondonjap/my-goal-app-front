@@ -1,5 +1,30 @@
 import { Link } from "react-router-dom";
 
+const Card = ({ title, desc, to, status = "ready" }) => {
+  const base =
+    "block rounded-2xl border border-white/10 bg-white/5 p-6 transition";
+  const ready = "hover:bg-white/10";
+  const disabled = "opacity-60 cursor-not-allowed";
+
+  if (status === "coming_soon") {
+    return (
+      <div className={`${base} ${disabled}`}>
+        <div className="text-xl font-semibold">{title}</div>
+        <div className="text-white/60 mt-2 text-sm">{desc}</div>
+        <div className="mt-4 text-sm text-white/60">準備中</div>
+      </div>
+    );
+  }
+
+  return (
+    <Link to={to} className={`${base} ${ready}`}>
+      <div className="text-xl font-semibold">{title}</div>
+      <div className="text-white/60 mt-2 text-sm">{desc}</div>
+      <div className="mt-4 text-sm text-white/80">→ 開く</div>
+    </Link>
+  );
+};
+
 export default function Dashboard() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
@@ -7,39 +32,53 @@ export default function Dashboard() {
         <div className="mb-8">
           <h1 className="text-3xl font-bold">人生の管理画面</h1>
           <p className="text-white/60 mt-2">
-            自己分析・目標・振り返りをまとめて管理するダッシュボード
+            自己分析・行動・身体をまとめて管理するダッシュボード
           </p>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* 目標 */}
-          <Link
+          <Card
+            title="メモ"
+            desc="思ったことをサクッと残す"
+            to="/memos"
+            status="coming_soon"
+          />
+          <Card
+            title="目標"
+            desc="目標の登録・一覧・詳細・編集"
             to="/goals"
-            className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition block"
-          >
-            <div className="text-xl font-semibold">目標</div>
-            <div className="text-white/60 mt-2 text-sm">
-              目標の登録・一覧・詳細・編集
-            </div>
-            <div className="mt-4 text-sm text-white/80">→ 開く</div>
-          </Link>
-
-          {/* ダミー（今後追加する機能） */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 opacity-60">
-            <div className="text-xl font-semibold">自己分析</div>
-            <div className="text-white/60 mt-2 text-sm">
-              価値観 / 強み弱み / 人生の軸（準備中）
-            </div>
-            <div className="mt-4 text-sm text-white/60">準備中</div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 opacity-60">
-            <div className="text-xl font-semibold">日記 / 振り返り</div>
-            <div className="text-white/60 mt-2 text-sm">
-              今日の気づき・感情・改善点（準備中）
-            </div>
-            <div className="mt-4 text-sm text-white/60">準備中</div>
-          </div>
+            status="ready"
+          />
+          <Card
+            title="筋トレ"
+            desc="種目・重量・回数を記録する"
+            to="/workouts"
+            status="coming_soon"
+          />
+          <Card
+            title="1問1答"
+            desc="問い→答えで自己理解を深める"
+            to="/qa"
+            status="coming_soon"
+          />
+          <Card
+            title="習慣化リスト"
+            desc="毎日のチェックで積み上げる"
+            to="/habits"
+            status="coming_soon"
+          />
+          <Card
+            title="スケジュール"
+            desc="予定・やることを登録する"
+            to="/schedule"
+            status="coming_soon"
+          />
+          <Card
+            title="アイデア箱"
+            desc="思いつきをストックする"
+            to="/ideas"
+            status="coming_soon"
+          />
         </div>
       </div>
     </div>

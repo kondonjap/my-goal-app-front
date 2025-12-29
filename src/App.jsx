@@ -1,15 +1,25 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
+
+// Goals（既存）
 import GoalIndex from "./pages/GoalIndex";
 import GoalCreate from "./pages/GoalCreate";
 import GoalShow from "./pages/GoalShow";
 import GoalEdit from "./pages/GoalEdit";
 
+// Coming soon pages
+import Memos from "./pages/Memos";
+import Workouts from "./pages/Workouts";
+import QA from "./pages/QA";
+import Habits from "./pages/Habits";
+import Schedule from "./pages/Schedule";
+import Ideas from "./pages/Ideas";
+
 function App() {
   return (
     <BrowserRouter>
       <div className="bg-neutral-950 text-white min-h-screen">
-        {/* 共通ナビ */}
+        {/* 共通ナビ（最小） */}
         <div className="mx-auto max-w-5xl px-6 py-4 flex gap-4">
           <Link className="text-white/80 hover:text-white" to="/">
             トップ
@@ -23,7 +33,16 @@ function App() {
         </div>
 
         <Routes>
+          {/* Dashboard */}
           <Route path="/" element={<Dashboard />} />
+
+          {/* Features */}
+          <Route path="/memos" element={<Memos />} />
+          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/qa" element={<QA />} />
+          <Route path="/habits" element={<Habits />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/ideas" element={<Ideas />} />
 
           {/* Goals */}
           <Route path="/goals" element={<GoalIndex />} />
