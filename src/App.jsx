@@ -1,11 +1,15 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/DashBoard";
 
 // Goals（既存）
 import GoalIndex from "./pages/GoalIndex";
 import GoalCreate from "./pages/GoalCreate";
 import GoalShow from "./pages/GoalShow";
 import GoalEdit from "./pages/GoalEdit";
+import IdolsHome from "./pages/IdolsHome";
+import IdolVenues from "./pages/IdolVenues";
+import IdolMembers from "./pages/IdolMembers";
+
 
 // Coming soon pages
 import Memos from "./pages/Memos";
@@ -27,8 +31,8 @@ function App() {
           <Link className="text-white/80 hover:text-white" to="/goals">
             目標
           </Link>
-          <Link className="text-white/80 hover:text-white" to="/goals/new">
-            目標登録
+          <Link className="text-white/80 hover:text-white" to="/idols">
+            アイドル
           </Link>
         </div>
 
@@ -49,6 +53,9 @@ function App() {
           <Route path="/goals/new" element={<GoalCreate />} />
           <Route path="/goals/:id" element={<GoalShow />} />
           <Route path="/goals/:id/edit" element={<GoalEdit />} />
+          <Route path="/idols" element={<IdolsHome />} />
+          <Route path="/idols/venues" element={<IdolVenues />} />
+          <Route path="/idols/members" element={<IdolMembers />} />
 
           {/* 404 */}
           <Route path="*" element={<div className="p-6">ページがありません</div>} />

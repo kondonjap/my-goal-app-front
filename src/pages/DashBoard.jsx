@@ -79,6 +79,12 @@ export default function Dashboard() {
             to="/ideas"
             status="coming_soon"
           />
+          <Card
+            title="アイドル"
+            desc="現場の記録・チェキ・支出の可視化"
+            to="/idols"
+            status="ready"
+          />
         </div>
       </div>
     </div>
